@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class AlienDictionary {
 
     private final int LENGTH_OF_ALPHABET = 26;
-    private final int MAX_COUNT_OF_WORDS = 2;
+    private final int MIN_COUNT_OF_WORDS = 1;
     private final String MSG_ERROR_LENGTH_ALPHABET = "alphabet must have 26 of length";
 
     private HashMap<String, Integer> mapAlphabet = new HashMap<>();
@@ -14,7 +14,7 @@ public class AlienDictionary {
     public Boolean verify (String alphabet, String[] words) throws Exception{
         if (alphabet.length() != LENGTH_OF_ALPHABET) throw new Exception(MSG_ERROR_LENGTH_ALPHABET);
 
-        if (words.length < MAX_COUNT_OF_WORDS) return Boolean.TRUE;
+        if (words.length <= MIN_COUNT_OF_WORDS) return Boolean.TRUE;
 
         int count = 1;
         for (Character character : alphabet.toCharArray()) {
